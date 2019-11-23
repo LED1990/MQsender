@@ -10,6 +10,6 @@ RUN mvn -f /home/aplikacja/sender/pom.xml clean install
 
 FROM openjdk:8-jre-alpine
 WORKDIR /home/aplikacja/sender
-COPY --from=build /home/aplikacja/sender/target/activeMqSender-1.0-SNAPSHOT.jar /home/aplikacja/sender
+COPY --from=build /home/aplikacja/sender/target/MqSender-spring-boot.jar /home/aplikacja/sender
 EXPOSE 9091
-ENTRYPOINT ["java", "-jar","activeMqSender-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar","MqSender-spring-boot.jar"]
