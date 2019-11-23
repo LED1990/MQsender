@@ -14,7 +14,7 @@ public class SenderController {
 
     @RequestMapping("/sendTextToQueue")
     public String sendTextToActiveMqQueue(){
-        mqProducerService.sendSimpleTextMessage("sendTextToQueue controller message");
+        mqProducerService.simpleTextProducer("sendTextToQueue controller message");
         return "Sukcess";
     }
 }
