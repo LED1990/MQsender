@@ -1,5 +1,6 @@
 package app.services;
 
+import app.model.CustomJmsMessage;
 import app.services.interfaces.MqProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -18,5 +19,10 @@ public class MqProducerServiceImpl implements MqProducerService {
     @Override
     public void simpleTextProducer(String msg) {
         jmsTemplate.convertAndSend("simpleTextQueue.q",msg.concat(String.valueOf(count.incrementAndGet())));
+    }
+
+    @Override
+    public void customJmsMessageProducer(CustomJmsMessage msg) {
+        jmsTemplate.convertAndSend("customJmsMessage.q", msg);
     }
 }
